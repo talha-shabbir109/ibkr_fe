@@ -1,27 +1,14 @@
-// import logo from './logo.svg';
-// import './App.css';
-
-// function App() {
-//   return (
-//     <h1 className="text-3xl font-bold underline">
-//       Hello world!
-//     </h1>
-//   );
-// }
-
-// export default App;
-
-
 import "./App.css";
-import LoginForm from "./pages/Login";
-
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import LoginForm from "./pages/Login";
+import Index from "./pages/Index";
 
 function App() {
 	return (
 		<BrowserRouter>
 			<Routes>
 				<Route path="/" element={<LoginForm />} />
+        <Route path="/index" element={<Index />}></Route>
 			</Routes>
 		</BrowserRouter>
 	);

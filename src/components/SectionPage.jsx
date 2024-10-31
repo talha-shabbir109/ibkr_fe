@@ -1,5 +1,6 @@
 // import Tables from '../shared/Tables'
 import TradesComponent from '../components/TradesComponent'
+import SignalComponent from '../components/SignalComponent'
 function SectionPage() {
   return (
     <section className="w-4/5 p-5">
@@ -81,8 +82,15 @@ function SectionPage() {
           </ol>
         </div>
       </div> */}
+        <TradesComponent className="w-3/4"></TradesComponent>
+        <div className="w-1/2">
+          <SignalComponent ></SignalComponent>
+
+        </div>
+        
+
       
-      <TradesComponent></TradesComponent>
+
 
       
     </section>

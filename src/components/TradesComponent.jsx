@@ -3,6 +3,8 @@ import Tables from "../shared/Tables";
 import CardsTickets from "../components/CardsTickets.jsx";
 import CreateOrder from "../components/CreateOrder.jsx";
 
+const REACT_APP_BACKEND_API_URL = process.env.REACT_APP_BACKEND_API_URL;
+
 const TradesComponent = () => {
   const [trades, setTrades] = useState([]);
   const [error, setError] = useState(null);
@@ -11,7 +13,7 @@ const TradesComponent = () => {
   useEffect(() => {
     const fetchTrades = async () => {
       try {
-        const response = await fetch("http://localhost:9125/trades", {
+        const response = await fetch(`${REACT_APP_BACKEND_API_URL}/trades`, {
           method: "GET",
           headers: {
             Accept: "application/json",

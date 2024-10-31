@@ -1,9 +1,24 @@
 import logo from "../assets/media/logo.png";
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from "./AuthProvider";
+
+
+
 function SideManue() {
+
+  const navigate = useNavigate();
+  const { logout } = useAuth();
+  const handleSignOut = () => {
+    console.log("User signed out");
+    logout();
+    navigate("/login");
+  };
+
+
   return (
     <div className="flex h-screen flex-col justify-between border-e bg-white w-1/5">
       <div className="px-4 py-6">
-        <img src={logo} alt="logo"/>
+        <img src={logo} alt="logo" />
         <ul className="mt-6 space-y-1">
           <li>
             <a
@@ -135,14 +150,13 @@ function SideManue() {
         </ul>
       </div>
 
-      <div className="sticky inset-x-0 bottom-0 border-t border-gray-100">
+      <div className="sticky inset-x-0 flex items-center justify-between bottom-0 border-t border-gray-100">
         <a href="/" className="flex items-center gap-2 bg-white p-4 hover:bg-gray-50">
           <img
             alt=""
             src="https://images.unsplash.com/photo-1600486913747-55e5470d6f40?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
             className="size-10 rounded-full object-cover"
           />
-
           <div>
             <p className="text-xs">
               <strong className="block font-medium">Eric Frusciante</strong>
@@ -151,6 +165,17 @@ function SideManue() {
             </p>
           </div>
         </a>
+        <div className="m-4">
+          <button
+            class="inline-block rounded border border-indigo-600 px-5 py-3 text-sm font-medium text-indigo-600 hover:bg-indigo-600 hover:text-white focus:outline-none focus:ring active:bg-indigo-500"
+            href="#"
+            onClick={handleSignOut}
+          >
+            Logout
+          </button>
+
+        </div>
+
       </div>
     </div>
   );
